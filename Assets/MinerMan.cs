@@ -9,14 +9,15 @@ public class MinerMan : MonoBehaviour
 		public float secsPerMine = 2f;
 		public GameObject myShell;
 		public GameObject gun;
-	Cooldown bulletWait;
-	public float secsPerBullet = 0.15f;
+		public GameObject head;
+		Cooldown bulletWait;
+		public float secsPerBullet = 0.15f;
 
 		// Use this for initialization
 		void Start ()
 		{
 				mineWait = new Cooldown (secsPerMine);
-		bulletWait = new Cooldown(secsPerBullet);
+				bulletWait = new Cooldown (secsPerBullet);
 		}
 	
 		// Update is called once per frame
@@ -27,11 +28,9 @@ public class MinerMan : MonoBehaviour
 						mineWait.Cool ();
 				}
 
-		gun.transform.rotation = new Quaternion(0, transform.rotation.y, 0, 1);
-
-				if (Input.GetMouseButton(0) && bulletWait.IsCooled()) {
+				if (Input.GetMouseButton (0) && bulletWait.IsCooled ()) {
 						fire ();
-			bulletWait.Cool ();
+						bulletWait.Cool ();
 				}
 		}
 

@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (createdAt + LIFETIME < Time.time){
-			Destroy(this);
+			Destroy(gameObject);
 			Debug.Log ("Destroying a bullet");
 		}
 	}
